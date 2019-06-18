@@ -6,6 +6,7 @@ class Thumbpad:
     def __init__(self, pinx, piny, atten=ADC.ATTN_11DB, width=ADC.WIDTH_12BIT):
         self._pinX = pinx
         self._pinY = piny
+        ADC.vref(vref=1150)
 
         self._x = ADC(Pin(self._pinX))
         self._x.atten(atten)
