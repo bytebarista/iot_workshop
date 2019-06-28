@@ -10,17 +10,17 @@ def do_connect(ssid="kubernetes lifeline", pwd="workwork"):
         while not wlan.isconnected():
             time.sleep(1)
             wlan.connect(ssid, pwd)
-    print("Done!")
-    from machine import DAC, Pin
-
-    dac = DAC(26)
-    sh = Pin(2, Pin.OUT, Pin.PULL_UP)  # old pin=4
-    sh.value(1)
-    t = DAC.SINE
-    f = 500
-    dac.waveform(f, type=t, scale=0)
-    time.sleep(0.025)
-    dac.stopwave()
     print("network config:", wlan.ifconfig())
 
-do_connect()
+def do_webrepl():
+	import webrepl
+	import machine
+	webrepl.start()
+	pwd = machine.unique_id()
+	# or, start with a specific password
+	webrepl.start(password=pwd)
+
+def no_debug():
+    import esp
+    # this can be run from the REPL as well
+    esp.osdebug(None)
