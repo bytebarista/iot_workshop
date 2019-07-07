@@ -4,7 +4,7 @@ from machine import Pin, ADC
 from array import array
 
 
-class Thumbpad:
+class Thumbslide:
     x_center = 1580
     y_center = 1769
 
@@ -46,8 +46,8 @@ class Thumbpad:
         x = x if x else self._x.read()
         y = y if y else self._y.read()
 
-        x_dist = x - Thumbpad.x_center
-        y_dist = y - Thumbpad.y_center
+        x_dist = x - Thumbslide.x_center
+        y_dist = y - Thumbslide.y_center
 
         return x_dist, y_dist
 
