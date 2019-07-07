@@ -1,8 +1,6 @@
-from ili934xhax import ILI9341, color565, color565n
+from iot_workshop.src.ili934xhax import ILI9341, color565n
 from machine import SPI, Pin
 import mcp
-import framebuf
-import random
 import bme280_int
 
 spi = SPI(
